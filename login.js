@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (username.trim() === '' || password.trim() === '') {
             alert('Por favor, complete ambos campos.');
         } else {
-            // Si ambos campos están llenos, redirigir a la siguiente página (puedes cambiar 'nextPage.html')
+            // Si ambos campos están llenos, redirigir a la página "Principal.html"
             window.location.href = 'Principal.html';
         }
     });
