@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('Por favor, complete ambos campos.');
         } else {
             // Si ambos campos están llenos, redirigir a la siguiente página (puedes cambiar 'nextPage.html')
-            window.location.href = 'nextPage.html';
+            window.location.href = 'Principal.html';
         }
     });
 });
