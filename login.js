@@ -1,19 +1,25 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Obtener el formulario y agregar un evento de escucha al envío
+
     const loginForm = document.querySelector('form');
     loginForm.addEventListener('submit', function (event) {
         event.preventDefault(); // Evitar que el formulario se envíe automáticamente
 
-        // Obtener los valores de usuario y contraseña
-        const username = document.getElementById('username').value;
+        // Obtener los valores de correo electrónico y contraseña
+        const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
 
-        // Verificar si ambos campos están llenos
-        if (username.trim() === '' || password.trim() === '') {
-            alert('Por favor, complete ambos campos.');
+        // Verificar si el correo electrónico es válido y la contraseña tiene al menos 8 caracteres
+        if (!validateEmail(email) || password.length < 8) {
+            alert('Por favor, ingrese un correo electrónico válido y una contraseña de al menos 8 caracteres.');
         } else {
-            // Si ambos campos están llenos, redirigir a la página "Principal.html"
+
             window.location.href = 'Principal.html';
         }
     });
+
+    function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
 });
+
