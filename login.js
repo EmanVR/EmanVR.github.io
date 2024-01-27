@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
             if (validatePassword(password)) {
 
-                alert('Ha ingresado su cuenta con éxito.');
+                window.location.href = 'Principal.html';
             } else {
                 alert('La contraseña debe tener una mayúscula, un número, y tener entre 8 y 30 caracteres.');
             }
