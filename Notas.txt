@@ -2,3 +2,8 @@ $git   status
 $git add
 $git commit -m "Que cambio estoy  subiendo"
 $git push
+
+Rick & Morty:
+id, name, status, image
+Detalles:
+origin, episode
