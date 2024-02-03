@@ -7,3 +7,20 @@ Rick & Morty:
 id, name, status, image
 Detalles:
 origin, episode
+
+
+Tareas:
+Añadir una portada de parcial 2.
+
+Buscar definiciones:
+Selectores:
+Clase, propiedad, elemento y id.
+
+Eventos:
+click
+keyup
+keydown
+submit
+imput
+change
+scroll
