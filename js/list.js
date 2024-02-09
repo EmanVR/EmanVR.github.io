@@ -17,27 +17,23 @@ document.addEventListener("DOMContentLoaded", () => {
         itemList.appendChild(clone);
     }
 
-    // Función para cargar los personajes desde la API
-    async function loadCharacters() {
+    // Función para cargar un personaje aleatorio desde la API y agregarlo a la lista
+    async function addRandomCharacter() {
         try {
-            const response = await fetch("https://rickandmortyapi.com/api/character");
-            const data = await response.json();
-            data.results.forEach(character => {
-                addCharacter(character);
-            });
+            const randomId = Math.floor(Math.random() * 671) + 1; // Seleccionar un ID de personaje aleatorio (la API tiene 671 personajes)
+            const response = await fetch(`https://rickandmortyapi.com/api/character/${randomId}`);
+            const character = await response.json();
+            addCharacter(character);
         } catch (error) {
-            console.error("Error al cargar los personajes:", error);
+            console.error("Error al cargar el personaje:", error);
         }
     }
 
     // Evento para agregar un personaje al hacer clic en el botón "Add item"
-    addButton.addEventListener("click", loadCharacters);
+    addButton.addEventListener("click", addRandomCharacter);
 
     // Evento para limpiar la lista al hacer clic en el botón "Clear all"
     clearButton.addEventListener("click", () => {
         itemList.innerHTML = "";
     });
-
-    // Cargar los personajes al cargar la página
-    loadCharacters();
 });
