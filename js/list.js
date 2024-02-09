@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const clearButton = document.querySelector(".btn.btn-light");
     const itemList = document.getElementById("my-list");
     const template = document.getElementById("list-template");
+    const modalBody = document.getElementById("modalBody");
     let characters = []; // Almacenar los personajes cargados
 
     // Función para agregar un personaje a la lista
@@ -14,8 +15,21 @@ document.addEventListener("DOMContentLoaded", () => {
         const img = document.createElement('img');
         img.src = character.image;
         img.alt = character.name;
+        img.classList.add("character-image"); // Agregar una clase al elemento de imagen
         clone.querySelector("[data-id='content']").appendChild(img);
         itemList.appendChild(clone);
+
+        // Agregar evento clic para mostrar los detalles del personaje en el modal
+        img.addEventListener("click", () => {
+            modalBody.innerHTML = `
+                <img src="${character.image}" alt="${character.name}" class="modal-character-image">
+                <p><strong>Name:</strong> ${character.name}</p>
+                <p><strong>Species:</strong> ${character.species}</p>
+                <p><strong>Status:</strong> ${character.status}</p>
+                <p><strong>Origin:</strong> ${character.origin.name}</p>
+            `;
+            $('#characterModal').modal('show'); // Mostrar el modal
+        });
     }
 
     // Función para cargar los personajes desde la API
