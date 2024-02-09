@@ -44,7 +44,3 @@ document.addEventListener("DOMContentLoaded", () => {
     // Cargar los personajes al cargar la página
     loadCharacters();
 });
-
-    // Cargar los primeros personajes disponibles al cargar la página
-    loadCharacters();
-});
