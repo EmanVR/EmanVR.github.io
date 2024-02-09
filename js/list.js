@@ -19,16 +19,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Función para cargar los primeros personajes disponibles desde la API y agregarlos a la lista
     async function loadCharacters() {
-        try {
-            const response = await fetch("https://rickandmortyapi.com/api/character");
-            const data = await response.json();
-            data.results.forEach(character => {
-                addCharacter(character);
-            });
-        } catch (error) {
-            console.error("Error al cargar los personajes:", error);
-        }
+    try {
+        const response = await fetch("https://rickandmortyapi.com/api/character");
+        const data = await response.json();
+        console.log(data); // Imprimir los datos en la consola
+        data.results.forEach(character => {
+            addCharacter(character);
+        });
+    } catch (error) {
+        console.error("Error al cargar los personajes:", error);
     }
+}
+
 
     // Evento para agregar un personaje al hacer clic en el botón "Add item"
     addButton.addEventListener("click", loadCharacters);
