@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const clearButton = document.querySelector(".btn.btn-light");
     const itemList = document.getElementById("my-list");
     const template = document.getElementById("list-template");
+    let characters = []; // Almacenar los personajes cargados
 
     // Función para agregar un personaje a la lista
     function addCharacter(character) {
@@ -17,28 +18,32 @@ document.addEventListener("DOMContentLoaded", () => {
         itemList.appendChild(clone);
     }
 
-    // Función para cargar los primeros personajes disponibles desde la API y agregarlos a la lista
+    // Función para cargar los personajes desde la API
     async function loadCharacters() {
-    try {
-        const response = await fetch("https://rickandmortyapi.com/api/character");
-        const data = await response.json();
-        console.log(data); // Imprimir los datos en la consola
-        data.results.forEach(character => {
-            addCharacter(character);
-        });
-    } catch (error) {
-        console.error("Error al cargar los personajes:", error);
+        try {
+            const response = await fetch("https://rickandmortyapi.com/api/character");
+            const data = await response.json();
+            characters = data.results; // Almacenar los personajes en la variable characters
+        } catch (error) {
+            console.error("Error al cargar los personajes:", error);
+        }
     }
-}
-
 
     // Evento para agregar un personaje al hacer clic en el botón "Add item"
-    addButton.addEventListener("click", loadCharacters);
+    addButton.addEventListener("click", () => {
+        characters.forEach(character => {
+            addCharacter(character);
+        });
+    });
 
     // Evento para limpiar la lista al hacer clic en el botón "Clear all"
     clearButton.addEventListener("click", () => {
         itemList.innerHTML = "";
     });
+
+    // Cargar los personajes al cargar la página
+    loadCharacters();
+});
 
     // Cargar los primeros personajes disponibles al cargar la página
     loadCharacters();
