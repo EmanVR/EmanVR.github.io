@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const itemList = document.getElementById("my-list");
     const template = document.getElementById("list-template");
     const modalBody = document.getElementById("modalBody");
-    let characters = []; // Almacenar los personajes cargados
+    let characters = [];
 
-    // Función para agregar un personaje a la lista
+
     function addCharacter(character) {
         const clone = template.content.cloneNode(true);
         clone.querySelector("[data-id='number']").textContent = character.id;
@@ -15,11 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const img = document.createElement('img');
         img.src = character.image;
         img.alt = character.name;
-        img.classList.add("character-image"); // Agregar una clase al elemento de imagen
+        img.classList.add("character-image"); 
         clone.querySelector("[data-id='content']").appendChild(img);
         itemList.appendChild(clone);
 
-        // Agregar evento clic para mostrar los detalles del personaje en el modal
+
         img.addEventListener("click", () => {
             modalBody.innerHTML = `
                 <img src="${character.image}" alt="${character.name}" class="modal-character-image">
@@ -28,33 +28,33 @@ document.addEventListener("DOMContentLoaded", () => {
                 <p><strong>Status:</strong> ${character.status}</p>
                 <p><strong>Origin:</strong> ${character.origin.name}</p>
             `;
-            $('#characterModal').modal('show'); // Mostrar el modal
+            $('#characterModal').modal('show');
         });
     }
 
-    // Función para cargar los personajes desde la API
+
     async function loadCharacters() {
         try {
             const response = await fetch("https://rickandmortyapi.com/api/character");
             const data = await response.json();
-            characters = data.results; // Almacenar los personajes en la variable characters
+            characters = data.results;
         } catch (error) {
             console.error("Error al cargar los personajes:", error);
         }
     }
 
-    // Evento para agregar un personaje al hacer clic en el botón "Add item"
+
     addButton.addEventListener("click", () => {
         characters.forEach(character => {
             addCharacter(character);
         });
     });
 
-    // Evento para limpiar la lista al hacer clic en el botón "Clear all"
+
     clearButton.addEventListener("click", () => {
         itemList.innerHTML = "";
     });
 
-    // Cargar los personajes al cargar la página
+
     loadCharacters();
 });
