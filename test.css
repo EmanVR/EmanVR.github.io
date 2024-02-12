@@ -15,8 +15,8 @@
     margin-bottom: 10px;
 }
 
-@media (min-width: 1201px) {
+@media (min-width: 901px) and (max-width: 1200px) {
     .results {
-        grid-template-columns: repeat(5, 1fr); /* Mantiene cinco columnas */
+        grid-template-columns: repeat(3, 1fr); /* Cambia a tres columnas */
     }
 }
