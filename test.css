@@ -2,18 +2,20 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 20px;
-    justify-items: center;
 }
 
 .character {
-    width: 200px;
+    width: 100%;
     border: 2px solid #ccc;
     border-radius: 5px;
     padding: 10px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .character img {
     max-width: 100%;
     height: auto;
+    margin-bottom: 10px;
 }
