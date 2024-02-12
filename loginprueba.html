@@ -3,21 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Login</title>
+    <title>R&M</title>
     <script src="validaciones.js" defer></script>     <!--  mandamos a llamar nuestro archivo js creado previamente -->
     <script src="api.js" defer></script>
 </head>
     <body>
-        <h1>Iniciar Sesión</h1>
-        <form id="loginForm" onsubmit="return validarLogin()">     <!-- manda a llamar el evento validarlogin del archivo js -->
-            <label for="email">Correo electrónico:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="contrasena">Contraseña:</label>
-            <input type="password" id="contrasena" name="contrasena" required>
-
-            <button type="submit">Iniciar Sesión</button>
-        </form>
         <h1>Rick y Morty API</h1>
         <button onclick="return mostrarLista()"> MOSTRAR TODOS</button> <!-- manda  a llamar el evento mostrarLista del archivo js -->
         <ul id="personajes" style="display: none;"></ul> <!-- aqui se despliega con la etiqueta lista  -->
