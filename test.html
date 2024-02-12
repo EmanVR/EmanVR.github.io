@@ -35,10 +35,8 @@
                 characterDiv.classList.add('character');
                 characterDiv.innerHTML = `
                     <h2>${character.name}</h2>
-                    <p>ID: ${character.id}</p>
-                    <p>Status: ${character.status}</p>
+                    <p class="status">Status: ${character.status}</p>
                     <img src="${character.image}" alt="${character.name}">
-                    <p>Episode: ${getEpisodeNumber(character.episode[0])}</p>
                 `;
                 if (character.origin) {
                     characterDiv.innerHTML += `<p>Origin: ${character.origin.name}</p>`;
@@ -55,10 +53,6 @@
                 pagination.innerHTML += `<button onclick="nextPage()">Next</button>`;
             }
             resultsContainer.appendChild(pagination);
-        }
-
-        function getEpisodeNumber(episodeUrl) {
-            return episodeUrl.split('/').pop(); // Obtiene el último segmento de la URL (número de episodio)
         }
 
         function nextPage() {
