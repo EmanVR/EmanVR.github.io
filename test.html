@@ -4,36 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rick and Morty Character Search</title>
-    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Rick and Morty Character Search</h1>
     <input type="text" id="searchInput" placeholder="Enter character name">
     <button onclick="searchCharacters()">Search</button>
 
-    <div id="results" class="results"></div>
+    <div id="results" class="results">
+        <!-- Resultados de búsqueda se mostrarán aquí -->
+    </div>
 
     <script>
         let page = 1;
 
-        // Función para mostrar marcos de personajes vacíos
-        function displayEmptyResults() {
+        function searchCharacters() {
+            const searchQuery = document.getElementById('searchInput').value.trim();
+
+            fetch(`https://rickandmortyapi.com/api/character/?name=${searchQuery}&page=${page}`)
+                .then(response => response.json())
+                .then(data => displayResults(data));
+        }
+
+        function displayResults(data) {
             const resultsContainer = document.getElementById('results');
             resultsContainer.innerHTML = '';
 
-            for (let i = 0; i < 10; i++) { // Mostrar 10 marcos vacíos
+            data.results.forEach(character => {
                 const characterDiv = document.createElement('div');
                 characterDiv.classList.add('character');
+                characterDiv.innerHTML = `
+                    <h2>${character.name}</h2>
+                    <p>ID: ${character.id}</p>
+                    <p>Status: ${character.status}</p>
+                    <img src="${character.image}" alt="${character.name}">
+                `;
+                if (character.origin) {
+                    characterDiv.innerHTML += `<p>Origin: ${character.origin.name}</p>`;
+                }
+                if (character.episode) {
+                    characterDiv.innerHTML += `<p>Episode: ${character.episode[0]}</p>`;
+                }
                 resultsContainer.appendChild(characterDiv);
+            });
+
+            // Pagination
+            const pagination = document.createElement('div');
+            if (data.info.prev) {
+                pagination.innerHTML += `<button onclick="previousPage()">Previous</button>`;
             }
+            if (data.info.next) {
+                pagination.innerHTML += `<button onclick="nextPage()">Next</button>`;
+            }
+            resultsContainer.appendChild(pagination);
         }
 
-        // Mostrar marcos vacíos al cargar la página
-        window.onload = function() {
-            displayEmptyResults();
-        };
+        function nextPage() {
+            page++;
+            searchCharacters();
+        }
 
-        // Resto del código para búsqueda y visualización de resultados...
+        function previousPage() {
+            page--;
+            searchCharacters();
+        }
+
+        // Mostrar personajes al cargar la página
+        window.onload = function() {
+            searchCharacters();
+        };
     </script>
 </body>
 </html>
