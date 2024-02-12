@@ -35,10 +35,7 @@
                 characterDiv.classList.add('character');
                 characterDiv.innerHTML = `
                     <h2>${character.name}</h2>
-                    <p class="status">
-                        <span class="status-circle ${getStatusColorClass(character.status)}"></span>
-                        Status: ${character.status}
-                    </p>
+                    <p class="status">${highlightStatus(character.status)}</p>
                     <img src="${character.image}" alt="${character.name}">
                 `;
                 if (character.origin) {
@@ -58,13 +55,13 @@
             resultsContainer.appendChild(pagination);
         }
 
-        function getStatusColorClass(status) {
+        function highlightStatus(status) {
             if (status === 'Alive') {
-                return 'status-alive';
+                return `<span class="status-alive">${status}</span>`;
             } else if (status === 'Dead') {
-                return 'status-dead';
+                return `<span class="status-dead">${status}</span>`;
             } else {
-                return 'status-unknown';
+                return `<span class="status-unknown">${status}</span>`;
             }
         }
 
