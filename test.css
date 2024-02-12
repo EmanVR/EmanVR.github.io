@@ -1,9 +1,4 @@
-.results {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-}
-
+/* Estilos base */
 .character {
     width: 100%;
     border: 2px solid #ccc;
@@ -18,4 +13,10 @@
     max-width: 100%;
     height: auto;
     margin-bottom: 10px;
+}
+
+@media (min-width: 1201px) {
+    .results {
+        grid-template-columns: repeat(5, 1fr); /* Mantiene cinco columnas */
+    }
 }
