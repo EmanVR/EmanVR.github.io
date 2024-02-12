@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rick and Morty Character Search</title>
-    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Rick and Morty Character Search</h1>
@@ -67,7 +67,16 @@
         }
 
         function getFirstEpisode(episodeList) {
-            return episodeList[0];
+            if (episodeList.length > 0) {
+                const episodeUrl = episodeList[0];
+                return getEpisodeNumber(episodeUrl);
+            } else {
+                return 'Unknown';
+            }
+        }
+
+        function getEpisodeNumber(episodeUrl) {
+            return episodeUrl.split('/').pop(); // Obtiene el último segmento de la URL (número de episodio)
         }
 
         function nextPage() {
