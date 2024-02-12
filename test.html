@@ -38,12 +38,10 @@
                     <p>ID: ${character.id}</p>
                     <p>Status: ${character.status}</p>
                     <img src="${character.image}" alt="${character.name}">
+                    <p>Episode: ${getEpisodeInfo(character.episode[0])}</p>
                 `;
                 if (character.origin) {
                     characterDiv.innerHTML += `<p>Origin: ${character.origin.name}</p>`;
-                }
-                if (character.episode) {
-                    characterDiv.innerHTML += `<p>Episode: ${character.episode[0]}</p>`;
                 }
                 resultsContainer.appendChild(characterDiv);
             });
@@ -57,6 +55,13 @@
                 pagination.innerHTML += `<button onclick="nextPage()">Next</button>`;
             }
             resultsContainer.appendChild(pagination);
+        }
+
+        function getEpisodeInfo(episodeUrl) {
+            const episodeParts = episodeUrl.split('/');
+            const season = episodeParts[episodeParts.length - 2];
+            const episode = episodeParts[episodeParts.length - 1];
+            return `Season ${season}, Episode ${episode}`;
         }
 
         function nextPage() {
