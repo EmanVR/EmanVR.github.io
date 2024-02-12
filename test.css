@@ -62,13 +62,13 @@ button {
 }
 
 .status-alive {
-    background-color: green;
+    color: green;
 }
 
 .status-dead {
-    background-color: red;
+    color: red;
 }
 
 .status-unknown {
-    background-color: gray;
+    color: gray;
 }
