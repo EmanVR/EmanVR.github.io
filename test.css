@@ -1,11 +1,16 @@
+.results {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+
 .character {
     width: 200px;
     border: 2px solid #ccc;
     border-radius: 5px;
-    margin: 10px;
     padding: 10px;
     text-align: center;
-    display: inline-block;
 }
 
 .character img {
