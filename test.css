@@ -1,9 +1,15 @@
 /* Estilos base */
+.results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
 .character {
     width: 100%;
     border: 2px solid #ccc;
     border-radius: 5px;
-    padding: 10px;
+    padding: 5px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -12,8 +18,9 @@
 .character img {
     max-width: 100%;
     height: auto;
-    margin-bottom: 10px;
+    margin-bottom: 5px; /* Tamaño */
 }
+
 
 
 @media (max-width: 600px) {
