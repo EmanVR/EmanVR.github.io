@@ -36,7 +36,8 @@ body {
 }
 
 h1 {
-    text-aling: center;
+    text-align: center;
+    margin-top: 20px;
 }
 
 #searchInput {
@@ -46,4 +47,28 @@ h1 {
 
 button {
     margin-top: 10px;
+}
+
+.status {
+    margin-top: 0;
+}
+
+.status-circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.status-alive {
+    background-color: green;
+}
+
+.status-dead {
+    background-color: red;
+}
+
+.status-unknown {
+    background-color: gray;
 }
