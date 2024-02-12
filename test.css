@@ -1,5 +1,4 @@
 /* Estilos base */
-
 * {
     margin: 0;
     padding: 0;
@@ -50,15 +49,7 @@ button {
 }
 
 .status {
-    margin-top: 0;
-}
-
-.status-circle {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 5px;
+    margin-top: 1;
 }
 
 .status-alive {
