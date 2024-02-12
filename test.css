@@ -53,13 +53,13 @@ button {
 }
 
 .status-alive {
-    color: green;
+    color: #2ecc71; 
 }
 
 .status-dead {
-    color: red;
+    color: #e74c3c; 
 }
 
 .status-unknown {
-    color: gray;
+    color: #95a5a6;
 }
