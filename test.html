@@ -36,7 +36,7 @@
                 characterDiv.innerHTML = `
                     <h2>${character.name}</h2>
                     <p class="status">${highlightStatus(character.status)}</p>
-                    <p>Episodes: ${character.episode.join(', ')}</p>
+                    <p>First Episode: ${getFirstEpisode(character.episode)}</p>
                     <img src="${character.image}" alt="${character.name}">
                 `;
                 if (character.origin) {
@@ -64,6 +64,10 @@
             } else {
                 return `<span class="status-unknown">Unknown</span>`;
             }
+        }
+
+        function getFirstEpisode(episodeList) {
+            return episodeList[0];
         }
 
         function nextPage() {
