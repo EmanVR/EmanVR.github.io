@@ -15,8 +15,27 @@
     margin-bottom: 10px;
 }
 
+
+@media (max-width: 600px) {
+    .results {
+        grid-template-columns: repeat(1, 1fr); /* Cambia a una columna */
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .results {
+        grid-template-columns: repeat(2, 1fr); /* Cambia a dos columnas */
+    }
+}
+
 @media (min-width: 901px) and (max-width: 1200px) {
     .results {
         grid-template-columns: repeat(3, 1fr); /* Cambia a tres columnas */
+    }
+}
+
+@media (min-width: 1201px) {
+    .results {
+        grid-template-columns: repeat(5, 1fr); /* Mantiene cinco columnas */
     }
 }
