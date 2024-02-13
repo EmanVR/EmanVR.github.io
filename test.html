@@ -14,7 +14,11 @@
     </div>
 
     <div id="results" class="results">
-       
+        <!-- Resultados de búsqueda se mostrarán aquí -->
+    </div>
+
+    <div id="pagination" class="pagination">
+        <!-- Paginación se mostrará aquí -->
     </div>
 
     <script>
@@ -47,15 +51,21 @@
                 resultsContainer.appendChild(characterDiv);
             });
 
-            
-            const pagination = document.createElement('div');
-            if (data.info.prev) {
-                pagination.innerHTML += `<button onclick="previousPage()">Previous</button>`;
+            // Pagination
+            const paginationContainer = document.getElementById('pagination');
+            paginationContainer.innerHTML = '';
+
+            const totalPages = data.info.pages;
+            if (totalPages > 1) {
+                for (let i = 1; i <= totalPages; i++) {
+                    const button = document.createElement('button');
+                    button.textContent = i;
+                    button.onclick = function() {
+                        goToPage(i);
+                    };
+                    paginationContainer.appendChild(button);
+                }
             }
-            if (data.info.next) {
-                pagination.innerHTML += `<button onclick="nextPage()">Next</button>`;
-            }
-            resultsContainer.appendChild(pagination);
         }
 
         function highlightStatus(status) {
@@ -81,17 +91,12 @@
             return episodeUrl.split('/').pop(); // Obtiene el último segmento de la URL (número de episodio)
         }
 
-        function nextPage() {
-            page++;
+        function goToPage(pageNumber) {
+            page = pageNumber;
             searchCharacters();
         }
 
-        function previousPage() {
-            page--;
-            searchCharacters();
-        }
-
-        
+        // Mostrar personajes al cargar la página
         window.onload = function() {
             searchCharacters();
         };
