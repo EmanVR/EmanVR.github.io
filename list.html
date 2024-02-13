@@ -1,16 +1,140 @@
-<!DOCTYPE html>   
-<html lang="es">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick and Morty Character Search</title>
     <link rel="stylesheet" href="style.css">
-    <title>Rick y Morty</title>
 </head>
 <body>
-    <h1>Lista de personajes Rick y Morty</h1>
+    <h1>Rick and Morty Character Search</h1>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Enter character name">
+        <button onclick="searchCharacters()">Search</button>
+    </div>
 
-    <main></main>
-    
-    <script src="index.js"></script>
+    <div id="results" class="results">
+
+    </div>
+
+    <div id="pagination" class="pagination">
+        
+    </div>
+
+    <script>
+        let page = 1;
+        let totalPages = 0;
+        let currentPageButton = null;
+        const maxButtons = 5;
+        let searchQuery = '';
+
+        function searchCharacters() {
+            searchQuery = document.getElementById('searchInput').value.trim();
+
+            // Si no estás en la página 1, regresa a la página 1
+            if (page !== 1) {
+                page = 1;
+            }
+
+            fetch(`https://rickandmortyapi.com/api/character/?name=${searchQuery}&page=${page}`)
+                .then(response => response.json())
+                .then(data => displayResults(data));
+        }
+
+        function displayResults(data) {
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = '';
+
+            data.results.forEach(character => {
+                const characterDiv = document.createElement('div');
+                characterDiv.classList.add('character');
+                characterDiv.innerHTML = `
+                    <h2>${character.name}</h2>
+                    <p class="status">${highlightStatus(character.status)}</p>
+                    <p>Episode: ${getFirstEpisode(character.episode)}</p>
+                    <img src="${character.image}" alt="${character.name}">
+                    <p>${character.origin ? character.origin.name : 'Unknown'}</p>
+                `;
+                resultsContainer.appendChild(characterDiv);
+            });
+
+            totalPages = data.info.pages;
+            renderPagination();
+        }
+
+        function renderPagination() {
+            const paginationContainer = document.getElementById('pagination');
+            paginationContainer.innerHTML = '';
+
+            const start = Math.max(1, page - Math.floor(maxButtons / 2));
+            const end = Math.min(totalPages, start + maxButtons - 1);
+
+            if (page > 1) {
+                const prevButton = document.createElement('button');
+                prevButton.textContent = 'Prev';
+                prevButton.onclick = function() {
+                    goToPage(page - 1);
+                };
+                paginationContainer.appendChild(prevButton);
+            }
+
+            for (let i = start; i <= end; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                button.onclick = function() {
+                    goToPage(i);
+                };
+                paginationContainer.appendChild(button);
+
+                if (i === page) {
+                    button.classList.add('active');
+                    currentPageButton = button;
+                }
+            }
+
+            if (page < totalPages) {
+                const nextButton = document.createElement('button');
+                nextButton.textContent = 'Next';
+                nextButton.onclick = function() {
+                    goToPage(page + 1);
+                };
+                paginationContainer.appendChild(nextButton);
+            }
+        }
+
+        function highlightStatus(status) {
+            if (status === 'Alive') {
+                return `<span class="status-alive">${status}</span>`;
+            } else if (status === 'Dead') {
+                return `<span class="status-dead">${status}</span>`;
+            } else {
+                return `<span class="status-unknown">Unknown</span>`;
+            }
+        }
+
+        function getFirstEpisode(episodeList) {
+            if (episodeList.length > 0) {
+                const episodeUrl = episodeList[0];
+                return getEpisodeNumber(episodeUrl);
+            } else {
+                return 'Unknown';
+            }
+        }
+
+        function getEpisodeNumber(episodeUrl) {
+            return episodeUrl.split('/').pop(); 
+        }
+
+        function goToPage(pageNumber) {
+            page = pageNumber;
+            fetch(`https://rickandmortyapi.com/api/character/?name=${searchQuery}&page=${page}`)
+                .then(response => response.json())
+                .then(data => displayResults(data));
+        }
+
+        window.onload = function() {
+            searchCharacters();
+        };
+    </script>
 </body>
 </html>
