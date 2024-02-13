@@ -24,7 +24,7 @@ h1 {
 }
 
 button {
-    width: 30px; /* Ancho cuadrado */
+    width: 50px; /* Ancho cuadrado */
     height: 30px; /* Altura cuadrada */
     border: none;
     background-color: transparent;
@@ -38,7 +38,6 @@ button:focus {
 
 button:hover {
     background-color: #f2f2f2; /* Cambiar color de fondo al pasar el ratón */
-    width: 50px; 
 }
 
 /* Estilos para los resultados */
