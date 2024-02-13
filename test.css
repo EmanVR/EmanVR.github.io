@@ -8,7 +8,7 @@
 h1 {
     text-align: center;
     margin-top: 20px;
-    margin-bottom: 20px; /* Añadido margen inferior al título */
+    margin-bottom: 20px;
 }
 
 .search-container {
@@ -24,20 +24,20 @@ h1 {
 }
 
 button {
-    width: 30px; /* Ancho cuadrado */
-    height: 30px; /* Altura cuadrada */
+    width: 30px;
+    height: 30px; 
     border: none;
     background-color: transparent;
     cursor: pointer;
-    margin: 0 5px; /* Margen horizontal entre botones */
+    margin: 0 5px;
 }
 
 button:focus {
-    outline: none; /* Eliminar contorno al hacer clic */
+    outline: none; 
 }
 
 button:hover {
-    background-color: #f2f2f2; /* Cambiar color de fondo al pasar el ratón */
+    background-color: #f2f2f2;
 }
 
 .results {
@@ -74,15 +74,15 @@ body {
 }
 
 .status-alive {
-    color: #2ecc71; /* verde más brillante */
+    color: #2ecc71;
 }
 
 .status-dead {
-    color: #e74c3c; /* rojo más brillante */
+    color: #e74c3c; 
 }
 
 .status-unknown {
-    color: #95a5a6; /* gris más claro */
+    color: #95a5a6; 
 }
 
 .pagination {
@@ -92,6 +92,6 @@ body {
 }
 
 .pagination button.active {
-    background-color: #333; /* Color más oscuro para la página actual */
-    color: #fff; /* Texto blanco para la página actual */
+    background-color: #333; 
+    color: #fff; 
 }
