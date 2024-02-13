@@ -20,9 +20,8 @@ h1 {
 }
 
 #searchInput {
-    margin-right: 10px;
     width: 150px;
-    text-align: center;
+    margin-right: 10px;
 }
 
 button {
