@@ -26,9 +26,10 @@
         let totalPages = 0;
         let currentPageButton = null;
         const maxButtons = 5;
+        let searchQuery = '';
 
         function searchCharacters() {
-            const searchQuery = document.getElementById('searchInput').value.trim();
+            searchQuery = document.getElementById('searchInput').value.trim();
 
             // Si no estás en la página 1, regresa a la página 1
             if (page !== 1) {
@@ -126,7 +127,7 @@
 
         function goToPage(pageNumber) {
             page = pageNumber;
-            fetch(`https://rickandmortyapi.com/api/character/?page=${page}`)
+            fetch(`https://rickandmortyapi.com/api/character/?name=${searchQuery}&page=${page}`)
                 .then(response => response.json())
                 .then(data => displayResults(data));
         }
