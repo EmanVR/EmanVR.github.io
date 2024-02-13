@@ -90,3 +90,19 @@ button:hover {
     background-color: #333; 
     color: #fff; 
 }
+
+
+
+.pagination button {
+    width: 30px; /* Ancho cuadrado */
+    height: 30px; /* Altura cuadrada */
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin: 0 5px; /* Margen horizontal entre botones */
+}
+
+.pagination button:hover {
+    background-color: #f2f2f2; /* Cambiar color de fondo al pasar el ratón */
+}
+
