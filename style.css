@@ -17,12 +17,12 @@ h1 {
     justify-content: flex-end;
     align-items: center;
     margin-bottom: 20px;
-    text-align: center;
 }
 
 #searchInput {
     width: 150px; 
     margin-right: 10px;
+    text-align: center;
 }
 
 button {
