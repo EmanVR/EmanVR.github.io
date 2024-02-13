@@ -28,16 +28,16 @@
         const maxButtons = 5;
 
         function searchCharacters() {
-            // Resetear la página a 1 al realizar una búsqueda
-            page = 1;
             const searchQuery = document.getElementById('searchInput').value.trim();
+
+            // Si no estás en la página 1, regresa a la página 1
+            if (page !== 1) {
+                page = 1;
+            }
 
             fetch(`https://rickandmortyapi.com/api/character/?name=${searchQuery}&page=${page}`)
                 .then(response => response.json())
-                .then(data => {
-                    displayResults(data);
-                    renderPagination(); // Renderizar la paginación después de obtener los resultados
-                });
+                .then(data => displayResults(data));
         }
 
         function displayResults(data) {
@@ -58,6 +58,7 @@
             });
 
             totalPages = data.info.pages;
+            renderPagination();
         }
 
         function renderPagination() {
@@ -125,7 +126,9 @@
 
         function goToPage(pageNumber) {
             page = pageNumber;
-            searchCharacters(); // Realizar una nueva búsqueda al cambiar de página
+            fetch(`https://rickandmortyapi.com/api/character/?page=${page}`)
+                .then(response => response.json())
+                .then(data => displayResults(data));
         }
 
         window.onload = function() {
