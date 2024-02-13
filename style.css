@@ -1,5 +1,4 @@
 /* Estilos base */
-
 * {
     margin: 0;
     padding: 0;
@@ -9,36 +8,36 @@
 h1 {
     text-align: center;
     margin-top: 20px;
-    margin-bottom: 20px; 
+    margin-bottom: 20px; /* Añadido margen inferior al título */
 }
 
 .search-container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center; /* Centra horizontalmente */
     align-items: center;
     margin-bottom: 20px;
 }
 
 #searchInput {
-    width: 150px;
+    width: 150px; /* Ancho más corto para la barra de búsqueda */
     margin-right: 10px;
 }
 
 button {
-    width: 30px; 
-    height: 30px; 
+    width: 30px; /* Ancho cuadrado */
+    height: 30px; /* Altura cuadrada */
     border: none;
     background-color: transparent;
     cursor: pointer;
-    margin: 0 5px; 
+    margin: 0 5px; /* Margen horizontal entre botones */
 }
 
 button:focus {
-    outline: none; 
+    outline: none; /* Eliminar contorno al hacer clic */
 }
 
 button:hover {
-    background-color: #f2f2f2; 
+    background-color: #f2f2f2; /* Cambiar color de fondo al pasar el ratón */
 }
 
 /* Estilos para los resultados */
@@ -69,15 +68,15 @@ button:hover {
 }
 
 .status-alive {
-    color: #2ecc71; /* Verde */
+    color: #2ecc71; /* verde más brillante */
 }
 
 .status-dead {
-    color: #e74c3c; /* Rojo */
+    color: #e74c3c; /* rojo más brillante */
 }
 
 .status-unknown {
-    color: #95a5a6; /* Gris */
+    color: #95a5a6; /* gris más claro */
 }
 
 /* Estilos para la paginación */
@@ -88,6 +87,6 @@ button:hover {
 }
 
 .pagination button.active {
-    background-color: #333; 
-    color: #fff; 
+    background-color: #333; /* Color más oscuro para la página actual */
+    color: #fff; /* Texto blanco para la página actual */
 }
