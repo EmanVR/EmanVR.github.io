@@ -65,6 +65,7 @@ button:hover {
     max-width: calc(100% - 20px); 
     height: auto;
     margin-bottom: 5px;
+    magic: auto;
 }
 
 .status {
