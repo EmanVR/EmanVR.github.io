@@ -13,10 +13,11 @@
     background-color: #0056b3;
 }
 
-.btn-light {
+.btn btn-light {
     width: 250px; 
+    height: 100px;
     display: block; 
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
 /* Estilos base */
