@@ -1,3 +1,4 @@
+/* Estilos base */
 
 * {
     margin: 0;
@@ -19,8 +20,8 @@ h1 {
 }
 
 #searchInput {
+    width: 150px; 
     margin-right: 10px;
-    flex: 1;
 }
 
 button {
@@ -40,6 +41,7 @@ button:hover {
     background-color: #f2f2f2; 
 }
 
+/* Estilos para los resultados */
 .results {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -67,18 +69,18 @@ button:hover {
 }
 
 .status-alive {
-    color: #2ecc71; 
+    color: #2ecc71; /* Verde */
 }
 
 .status-dead {
-    color: #e74c3c; 
+    color: #e74c3c; /* Rojo */
 }
 
 .status-unknown {
-    color: #95a5a6; 
+    color: #95a5a6; /* Gris */
 }
 
-
+/* Estilos para la paginación */
 .pagination {
     display: flex;
     justify-content: center;
@@ -89,4 +91,3 @@ button:hover {
     background-color: #333; 
     color: #fff; 
 }
-
