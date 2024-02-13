@@ -68,15 +68,15 @@ button:hover {
 }
 
 .status-alive {
-    color: #2ecc71; /* verde más brillante */
+    color: #2ecc71; /* Verde */
 }
 
 .status-dead {
-    color: #e74c3c; /* rojo más brillante */
+    color: #e74c3c; /* Rojo */
 }
 
 .status-unknown {
-    color: #95a5a6; /* gris más claro */
+    color: #95a5a6; /* Gris */
 }
 
 /* Estilos para la paginación */
@@ -90,4 +90,3 @@ button:hover {
     background-color: #333; /* Color más oscuro para la página actual */
     color: #fff; /* Texto blanco para la página actual */
 }
-
