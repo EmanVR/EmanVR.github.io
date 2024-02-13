@@ -14,16 +14,17 @@
     </div>
 
     <div id="results" class="results">
-        
+        <!-- Resultados de búsqueda se mostrarán aquí -->
     </div>
 
     <div id="pagination" class="pagination">
-        
+        <!-- Paginación se mostrará aquí -->
     </div>
 
     <script>
         let page = 1;
         let totalPages = 0;
+        let currentPageButton = null;
         const maxButtons = 5;
 
         function searchCharacters() {
@@ -80,6 +81,12 @@
                     goToPage(i);
                 };
                 paginationContainer.appendChild(button);
+
+                // Marcar el botón de la página actual
+                if (i === page) {
+                    button.classList.add('active');
+                    currentPageButton = button;
+                }
             }
 
             if (page < totalPages) {
@@ -112,15 +119,24 @@
         }
 
         function getEpisodeNumber(episodeUrl) {
-            return episodeUrl.split('/').pop();
+            return episodeUrl.split('/').pop(); // Obtiene el último segmento de la URL (número de episodio)
         }
 
         function goToPage(pageNumber) {
             page = pageNumber;
             searchCharacters();
+
+            // Eliminar la clase de estilo del botón anteriormente activo
+            if (currentPageButton) {
+                currentPageButton.classList.remove('active');
+            }
+
+            // Obtener el nuevo botón de la página actual y aplicar la clase de estilo
+            currentPageButton = document.querySelector(`#pagination button:nth-child(${page})`);
+            currentPageButton.classList.add('active');
         }
 
-        
+        // Mostrar personajes al cargar la página
         window.onload = function() {
             searchCharacters();
         };
