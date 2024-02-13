@@ -3,6 +3,18 @@
 .btn-primary {
     width: 250px; 
     display: block; 
+    margin: 0 auto;
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-light {
+    width: 250px; 
+    display: block; 
     margin: 0 auto; 
 }
 
