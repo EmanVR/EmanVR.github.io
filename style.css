@@ -25,7 +25,7 @@ h1 {
 
 button {
     width: 30px; /* Ancho cuadrado */
-    height: 30px; /* Altura cuadrada */
+    height: 50px; /* Altura cuadrada */
     border: none;
     background-color: transparent;
     cursor: pointer;
