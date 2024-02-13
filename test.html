@@ -47,10 +47,8 @@
                     <p class="status">${highlightStatus(character.status)}</p>
                     <p>Episode: ${getFirstEpisode(character.episode)}</p>
                     <img src="${character.image}" alt="${character.name}">
+                    <p>${character.origin ? character.origin.name : 'Unknown'}</p> <!-- Condición para mostrar el origen o "Unknown" -->
                 `;
-                if (character.origin) {
-                    characterDiv.innerHTML += `<p>Origin: ${character.origin.name}</p>`;
-                }
                 resultsContainer.appendChild(characterDiv);
             });
 
