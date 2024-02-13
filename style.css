@@ -8,18 +8,18 @@
 h1 {
     text-align: center;
     margin-top: 20px;
-    margin-bottom: 20px; /* Añadido margen inferior al título */
+    margin-bottom: 20px;
 }
 
 .search-container {
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
+    justify-content: center;
     align-items: center;
     margin-bottom: 20px;
 }
 
 #searchInput {
-    width: 100px; /* Ancho más pequeño para la barra de búsqueda */
+    width: 150px; /* Ancho más pequeño para la barra de búsqueda */
     margin-right: 10px;
 }
 
