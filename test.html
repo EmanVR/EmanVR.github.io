@@ -23,6 +23,8 @@
 
     <script>
         let page = 1;
+        let totalPages = 0;
+        const maxButtons = 5;
 
         function searchCharacters() {
             const searchQuery = document.getElementById('searchInput').value.trim();
@@ -51,20 +53,42 @@
                 resultsContainer.appendChild(characterDiv);
             });
 
-            // Pagination
+            totalPages = data.info.pages;
+            renderPagination();
+        }
+
+        function renderPagination() {
             const paginationContainer = document.getElementById('pagination');
             paginationContainer.innerHTML = '';
 
-            const totalPages = data.info.pages;
-            if (totalPages > 1) {
-                for (let i = 1; i <= totalPages; i++) {
-                    const button = document.createElement('button');
-                    button.textContent = i;
-                    button.onclick = function() {
-                        goToPage(i);
-                    };
-                    paginationContainer.appendChild(button);
-                }
+            const start = Math.max(1, page - Math.floor(maxButtons / 2));
+            const end = Math.min(totalPages, start + maxButtons - 1);
+
+            if (page > 1) {
+                const prevButton = document.createElement('button');
+                prevButton.textContent = 'Prev';
+                prevButton.onclick = function() {
+                    goToPage(page - 1);
+                };
+                paginationContainer.appendChild(prevButton);
+            }
+
+            for (let i = start; i <= end; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                button.onclick = function() {
+                    goToPage(i);
+                };
+                paginationContainer.appendChild(button);
+            }
+
+            if (page < totalPages) {
+                const nextButton = document.createElement('button');
+                nextButton.textContent = 'Next';
+                nextButton.onclick = function() {
+                    goToPage(page + 1);
+                };
+                paginationContainer.appendChild(nextButton);
             }
         }
 
