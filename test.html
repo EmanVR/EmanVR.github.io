@@ -14,11 +14,11 @@
     </div>
 
     <div id="results" class="results">
-        <!-- Resultados de búsqueda se mostrarán aquí -->
+        
     </div>
 
     <div id="pagination" class="pagination">
-        <!-- Paginación se mostrará aquí -->
+        
     </div>
 
     <script>
@@ -112,7 +112,7 @@
         }
 
         function getEpisodeNumber(episodeUrl) {
-            return episodeUrl.split('/').pop(); // Obtiene el último segmento de la URL (número de episodio)
+            return episodeUrl.split('/').pop();
         }
 
         function goToPage(pageNumber) {
@@ -120,7 +120,7 @@
             searchCharacters();
         }
 
-        // Mostrar personajes al cargar la página
+        
         window.onload = function() {
             searchCharacters();
         };
