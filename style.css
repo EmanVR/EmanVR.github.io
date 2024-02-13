@@ -24,12 +24,12 @@ h1 {
 }
 
 button {
-    width: 30px; /* Ancho cuadrado */
-    height: 50px; /* Altura cuadrada */
+    width: 30px; 
+    height: 50px; 
     border: none;
     background-color: transparent;
     cursor: pointer;
-    margin: 0 5px; /* Margen horizontal entre botones */
+    margin: 0 5px; 
 }
 
 button:focus {
