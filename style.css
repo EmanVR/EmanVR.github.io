@@ -64,7 +64,8 @@ button:hover {
 .character img {
     max-width: calc(100% - 20px); 
     height: auto;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
     margin: auto;
 }
 
