@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rick and Morty Character Search</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="test.css">
 </head>
 <body>
     <h1>Rick and Morty Character Search</h1>
@@ -14,7 +14,7 @@
     </div>
 
     <div id="results" class="results">
-        <!-- Resultados de búsqueda se mostrarán aquí -->
+
     </div>
 
     <div id="pagination" class="pagination">
@@ -82,7 +82,6 @@
                 };
                 paginationContainer.appendChild(button);
 
-                // Marcar el botón de la página actual
                 if (i === page) {
                     button.classList.add('active');
                     currentPageButton = button;
@@ -119,24 +118,21 @@
         }
 
         function getEpisodeNumber(episodeUrl) {
-            return episodeUrl.split('/').pop(); // Obtiene el último segmento de la URL (número de episodio)
+            return episodeUrl.split('/').pop(); 
         }
 
         function goToPage(pageNumber) {
             page = pageNumber;
             searchCharacters();
 
-            // Eliminar la clase de estilo del botón anteriormente activo
             if (currentPageButton) {
                 currentPageButton.classList.remove('active');
             }
 
-            // Obtener el nuevo botón de la página actual y aplicar la clase de estilo
             currentPageButton = document.querySelector(`#pagination button:nth-child(${page})`);
             currentPageButton.classList.add('active');
         }
 
-        // Mostrar personajes al cargar la página
         window.onload = function() {
             searchCharacters();
         };
