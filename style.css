@@ -1,6 +1,6 @@
 /* Estilos base */
 * {
-    margin: 0;
+    margin: 10;
     padding: 0;
     box-sizing: border-box;
 }
@@ -91,8 +91,6 @@ button:hover {
     color: #fff; 
 }
 
-
-
 .pagination button {
     width: 30px; /* Ancho cuadrado */
     height: 30px; /* Altura cuadrada */
@@ -100,6 +98,7 @@ button:hover {
     background-color: transparent;
     cursor: pointer;
     margin: 0 5px; /* Margen horizontal entre botones */
+    margin:
 }
 
 .pagination button:hover {
