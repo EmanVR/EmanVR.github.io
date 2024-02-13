@@ -5,6 +5,41 @@
     box-sizing: border-box;
 }
 
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px; /* Añadido margen inferior al título */
+}
+
+.search-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#searchInput {
+    margin-right: 10px;
+    flex: 1;
+}
+
+button {
+    width: 30px; /* Ancho cuadrado */
+    height: 30px; /* Altura cuadrada */
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin: 0 5px; /* Margen horizontal entre botones */
+}
+
+button:focus {
+    outline: none; /* Eliminar contorno al hacer clic */
+}
+
+button:hover {
+    background-color: #f2f2f2; /* Cambiar color de fondo al pasar el ratón */
+}
+
 .results {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -34,44 +69,29 @@ body {
     padding-bottom: 20px;
 }
 
-h1 {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.search-container {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-#searchInput {
-    margin-right: 0px;
-    flex: 1;
-}
-
-button {
-    width: 100px;
-}
-
 .status {
     margin-top: 0;
 }
 
 .status-alive {
-    color: #2ecc71; /* Verde */
+    color: #2ecc71; /* verde más brillante */
 }
 
 .status-dead {
-    color: #e74c3c; /* Rojo*/
+    color: #e74c3c; /* rojo más brillante */
 }
 
 .status-unknown {
-    color: #95a5a6; /* Gris */
+    color: #95a5a6; /* gris más claro */
 }
 
 .pagination {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button.active {
+    background-color: #333; /* Color más oscuro para la página actual */
+    color: #fff; /* Texto blanco para la página actual */
 }
