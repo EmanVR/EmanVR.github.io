@@ -19,13 +19,13 @@ h1 {
 }
 
 #searchInput {
-    width: 150px; /* Ancho más pequeño para la barra de búsqueda */
+    width: 150px;
     margin-right: 10px;
 }
 
 button {
     width: 30px; 
-    height: 50px; 
+    height: 60px; 
     border: none;
     background-color: transparent;
     cursor: pointer;
@@ -33,11 +33,11 @@ button {
 }
 
 button:focus {
-    outline: none; /* Eliminar contorno al hacer clic */
+    outline: none;
 }
 
 button:hover {
-    background-color: #f2f2f2; /* Cambiar color de fondo al pasar el ratón */
+    background-color: #f2f2f2;
 }
 
 /* Estilos para los resultados */
@@ -87,6 +87,6 @@ button:hover {
 }
 
 .pagination button.active {
-    background-color: #333; /* Color más oscuro para la página actual */
-    color: #fff; /* Texto blanco para la página actual */
+    background-color: #333; 
+    color: #fff; 
 }
