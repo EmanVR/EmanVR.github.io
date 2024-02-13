@@ -17,6 +17,7 @@ h1 {
     justify-content: flex-end;
     align-items: center;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 #searchInput {
