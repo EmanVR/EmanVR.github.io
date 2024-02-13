@@ -27,7 +27,7 @@ button {
     width: 60px; 
     height: 30px; 
     border: none;
-    background-color: transparent;
+    background-color: #f9f9f9;
     cursor: pointer;
     margin: 0 5px; 
 }
