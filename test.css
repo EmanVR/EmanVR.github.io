@@ -72,3 +72,6 @@ button {
     color: #95a5a6; /* Gris */
 }
 
+.pagination {
+    text-align: center;
+}
