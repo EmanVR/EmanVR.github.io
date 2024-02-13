@@ -21,7 +21,6 @@ h1 {
 
 #searchInput {
     margin-right: 10px;
-    flex: 1;
     width: 150px;
     text-align: center;
 }
