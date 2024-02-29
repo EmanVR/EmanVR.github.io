@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const registerForm = document.querySelector('form');
     registerForm.addEventListener('submit', function (event) {
-        event.preventDefault();
+        event.preventDefault(); // TOMAR EN CUENTA
 
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
