@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const registerForm = document.querySelector('form');
     registerForm.addEventListener('submit', function (event) {
-        event.preventDefault(); // TOMAR EN CUENTA
+        event.preventDefault(); // TOMAR EN CUENTA ESTA LÍNEA
 
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
