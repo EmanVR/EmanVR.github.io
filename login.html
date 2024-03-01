@@ -50,7 +50,7 @@
         .form-group button {
             width: 100%;
             padding: 10px;
-            background-color: #303030; /*Cambio de color*/
+            background-color: #303030;
             color: #fff;
             border: none;
             border-radius: 4px;
@@ -80,6 +80,35 @@
         </form>
     </div>
 
-    <script src="login.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const loginForm = document.querySelector('form');
+            loginForm.addEventListener('submit', async function (event) {
+                event.preventDefault();
+
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+                // Obtener el usuario correspondiente al correo electrónico ingresado
+                const user = getUserByEmail(email);
+
+                if (!user) {
+                    alert('El correo electrónico ingresado no está registrado.');
+                    return;
+                }
+
+                // Comparar el token generado con la contraseña almacenada en la base de datos
+                const isPasswordCorrect = await compareToken(user.password, password);
+
+                if (isPasswordCorrect) {
+                    alert('Inicio de sesión exitoso. Bienvenido!');
+                    // Aquí puedes redirigir al usuario a la página de inicio o realizar otras acciones necesarias
+                } else {
+                    alert('La contraseña ingresada es incorrecta. Por favor, inténtalo de nuevo.');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
