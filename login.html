@@ -90,16 +90,16 @@
                 const email = document.getElementById('email').value;
                 const password = document.getElementById('password').value;
 
-                // Hashear la contraseña antes de enviarla al servidor
+                // Hash de la contraseña
                 const hashedPassword = await hashPassword(password);
 
-                // Aquí puedes enviar email y hashedPassword al servidor para la autenticación
                 console.log(`Email: ${email}, Contraseña: ${hashedPassword}`);
             });
 
             async function hashPassword(password) {
+                
                 // Hash de la contraseña utilizando BCrypt
-                const saltRounds = 10; // Número de rondas de hashing (mayor es más seguro pero más lento)
+                const saltRounds = 10;
                 return await bcrypt.hash(password, saltRounds);
             }
         });
