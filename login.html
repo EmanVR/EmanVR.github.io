@@ -102,10 +102,11 @@
                 const isPasswordCorrect = await compareToken(user.password, password);
 
                 if (isPasswordCorrect) {
-                    alert('Inicio de sesión exitoso. Bienvenido!');
-                    // Aquí puedes redirigir al usuario a la página de inicio o realizar otras acciones necesarias
+                    alert('Inicio de sesión exitoso.');
+                    
+                    // Redirigir al usuario a la página de inicio o realizar otras acciones necesarias
                 } else {
-                    alert('La contraseña ingresada es incorrecta. Por favor, inténtalo de nuevo.');
+                    alert('Error al iniciar sesión.');
                 }
             });
         });
