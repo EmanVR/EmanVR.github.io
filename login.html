@@ -50,7 +50,7 @@
         .form-group button {
             width: 100%;
             padding: 10px;
-            background-color: #303030;
+            background-color: #303030; /*Cambio de color*/
             color: #fff;
             border: none;
             border-radius: 4px;
@@ -80,29 +80,6 @@
         </form>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const loginForm = document.querySelector('form');
-            loginForm.addEventListener('submit', async function (event) {
-                event.preventDefault();
-
-                const email = document.getElementById('email').value;
-                const password = document.getElementById('password').value;
-
-                // Hash de la contraseña
-                const hashedPassword = await hashPassword(password);
-
-                console.log(`Email: ${email}, Contraseña: ${hashedPassword}`);
-            });
-
-            async function hashPassword(password) {
-                
-                // Hash de la contraseña utilizando BCrypt
-                const saltRounds = 10;
-                return await bcrypt.hash(password, saltRounds);
-            }
-        });
-    </script>
+    <script src="login.js"></script>
 </body>
 </html>
