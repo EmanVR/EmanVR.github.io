@@ -6,6 +6,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
+        const name = document.getElementById('name').value;
+
+        if (!validateName(name)) {
+            alert('El campo de nombre debe contener solo letras y tener entre 3 y 30 caracteres.');
+            return; // Salir de la función si la validación falla
+        }
 
         if (!validateEmail(email)) {
             alert('Por favor, ingrese un correo electrónico válido.');
@@ -27,5 +33,10 @@ document.addEventListener('DOMContentLoaded', function () {
     function validatePassword(password) {
         const passwordRegex = /^(?=.*[A-Z])(?=.*\d).{8,30}$/;
         return passwordRegex.test(password);
+    }
+
+    function validateName(name) {
+        const nameRegex = /^[A-Za-z]{3,30}$/;
+        return nameRegex.test(name);
     }
 });
