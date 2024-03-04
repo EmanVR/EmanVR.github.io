@@ -106,17 +106,28 @@
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
+            // Validar el nombre
+            if (!validateName(name)) {
+                document.getElementById('register-message').textContent = 'El campo de nombre debe contener solo letras y tener entre 3 y 30 caracteres.';
+                return;
+            }
+
             // Hashe de la contraseña
             const hashedPassword = await hashPassword(password);
 
-            console.log(`Nombre: ${name}, Email: ${email}, Contraseña: ${hashedPassword}`);
+            // Mostrar mensaje de registro exitoso
+            document.getElementById('register-message').textContent = 'Registro exitoso.';
         }
 
         async function hashPassword(password) {
-            
             // Hash de la contraseña utilizando BCrypt
             const saltRounds = 10;
             return await bcrypt.hash(password, saltRounds);
+        }
+
+        function validateName(name) {
+            const nameRegex = /^[A-Za-z]{3,30}$/; 
+            return nameRegex.test(name);
         }
     </script>
 </body>
