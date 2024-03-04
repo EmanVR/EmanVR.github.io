@@ -3,76 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Registro</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-        .login-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
-        }
-
-        .login-container h2 {
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: #555;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        .form-group button {
-            width: 100%;
-            padding: 10px;
-            background-color: #303030;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .form-group button:hover {
-            background-color: #202020;
-        }
-
-        #register-message {
-            color: red;
-        }
+        /* Estilos */
     </style>
 </head>
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
-    <script src="login.js"></script>
-
-    <div class="login-container" id="register-section">
+    <div class="register-container" id="register-section">
         <h2>Registro</h2>
-        <form id="register-form">
+        <form>
             <div class="form-group">
                 <label for="name">Nombre:</label>
                 <input type="text" id="name" name="name" required>
@@ -91,10 +30,43 @@
             <div class="form-group">
                 <a href="login.html" class="login-link">¿Ya tienes cuenta? Inicia sesión aquí</a>
             </div>
+            <div id="register-message"></div>
         </form>
-        <p id="register-message"></p>
     </div>
 
-    <script src="register.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
+    <script>
+        async function registerUser() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (!validateName(name)) {
+                document.getElementById('register-message').textContent = 'El campo de nombre debe contener solo letras y tener entre 3 y 30 caracteres.';
+                return;
+            }
+
+            const hashedPassword = await hashPassword(password);
+
+            document.getElementById('register-message').textContent = 'Registro exitoso.';
+
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 2000);
+        }
+
+        async function hashPassword(password) {
+            
+            // Hash de la contraseña utilizando BCrypt
+            const saltRounds = 10;
+            return await bcrypt.hash(password, saltRounds);
+        }
+
+        function validateName(name) {
+            const nameRegex = /^[A-Za-z]{3,30}$/; 
+            return nameRegex.test(name);
+        }
+    </script>
 </body>
 </html>
+
