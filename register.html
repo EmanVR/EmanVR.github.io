@@ -107,6 +107,8 @@
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
+            const nameError = document.getElementById('name-error');
+            
             if (!validateName(name)) {
                 nameError.textContent = 'El campo de nombre debe contener solo letras y tener entre 3 y 30 caracteres.';
                 return;
