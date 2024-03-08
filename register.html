@@ -108,8 +108,10 @@
             const password = document.getElementById('password').value;
 
             if (!validateName(name)) {
-                document.getElementById('register-message').textContent = 'El campo de nombre debe contener solo letras y tener entre 3 y 30 caracteres.';
+                nameError.textContent = 'El campo de nombre debe contener solo letras y tener entre 3 y 30 caracteres.';
                 return;
+            } else {
+                nameError.textContent = '';
             }
 
             const hashedPassword = await hashPassword(password);
