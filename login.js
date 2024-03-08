@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 window.location.href = 'Principal.html';
                 //alert('Ha ingresado a su cuenta con éxito.');
             } else {
-                alert('La contraseña debe tener una mayúscula, un número, y tener entre 8 y 30 caracteres.');
+                alert('Ha ocurrido un error.');
             }
         }
     });
